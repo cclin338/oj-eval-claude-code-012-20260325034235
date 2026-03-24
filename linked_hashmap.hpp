@@ -43,7 +43,7 @@ private:
     };
 
     // Hash table parameters
-    static const size_t INITIAL_CAPACITY = 256;
+    static const size_t INITIAL_CAPACITY = 1024;
     static const double LOAD_FACTOR_THRESHOLD;
 
     // Hash table
@@ -638,7 +638,7 @@ public:
 
 // Static member initialization
 template<class Key, class T, class Hash, class Equal>
-const double linked_hashmap<Key, T, Hash, Equal>::LOAD_FACTOR_THRESHOLD = 0.75;
+const double linked_hashmap<Key, T, Hash, Equal>::LOAD_FACTOR_THRESHOLD = 0.5;
 
 // Implement iterator comparison operators that depend on const_iterator
 template<class Key, class T, class Hash, class Equal>
