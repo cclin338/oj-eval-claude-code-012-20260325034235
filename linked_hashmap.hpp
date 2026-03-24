@@ -43,7 +43,7 @@ private:
     };
 
     // Hash table parameters
-    static const size_t INITIAL_CAPACITY = 16;
+    static const size_t INITIAL_CAPACITY = 256;
     static const double LOAD_FACTOR_THRESHOLD;
 
     // Hash table
@@ -71,13 +71,14 @@ private:
         // Rehash all elements
         Node* current = head;
         while (current) {
+            Node* next_in_list = current->next_in_list;
             size_t new_index = hasher(current->data.first) % new_capacity;
 
             // Insert at beginning of chain
             current->next_in_bucket = new_buckets[new_index];
             new_buckets[new_index] = current;
 
-            current = current->next_in_list;
+            current = next_in_list;
         }
 
         // Clean up old buckets
